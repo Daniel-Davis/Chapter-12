@@ -1,5 +1,7 @@
 // Daniel Davis, bubbleSort, function file for bubble sorting //
 
+load("arrayTestBed.js");
+
 function bubbleSort() {
   var nunElements = this.dataStore.length;
   var temp;
