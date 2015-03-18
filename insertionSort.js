@@ -1,5 +1,7 @@
 // Daniel Davis, insertionSort, class file that holds insertionSort function //
 
+load("arrayTestBed.js");
+
 function insertionSort() {
   var temp, inner;
   for (var outer = 1, outer <= this.dataStore.length, ++outer) {
