@@ -21,35 +21,36 @@ function mergeSort(arr) {
   }
 }
 function mergeArrays(arr, startLeft, stopLeft, startRight, stopRight) {
-var rightArr = new Array(stopRight - startRight + 1);
-var leftArr = new Array(stopLeft - startLeft + 1);
-k = startRight;
-for (var i = 0; i < (rightArr.length-1); ++i) {
-rightArr[i] = arr[k];
-++k;
+  var rightArr = new Array(stopRight - startRight + 1);
+  var leftArr = new Array(stopLeft - startLeft + 1);
+  k = startRight;
+  for (var i = 0; i < (rightArr.length-1); ++i) {
+    rightArr[i] = arr[k];
+    ++k;
+  }
+  k = startLeft;
+  for (var i = 0; i < (leftArr.length-1); ++i) {
+    leftArr[i] = arr[k];
+    ++k;
+  }
+  rightArr[rightArr.length-1] = Infinity; // a sentinel value
+  leftArr[leftArr.length-1] = Infinity; // a sentinel value
+  var m = 0;
+  var n = 0;
+  for (var k = startLeft; k < stopRight; ++k) {
+    if (leftArr[m] <= rightArr[n]) {
+      arr[k] = leftArr[m];
+      m++;
+    }
+    else {
+     arr[k] = rightArr[n];
+     n++;
+    }
+  }
+  print("left array - ", leftArr);
+  print("right array - ", rightArr);
 }
-k = startLeft;
-for (var i = 0; i < (leftArr.length-1); ++i) {
-leftArr[i] = arr[k];
-++k;
-}
-rightArr[rightArr.length-1] = Infinity; // a sentinel value
-leftArr[leftArr.length-1] = Infinity; // a sentinel value
-var m = 0;
-var n = 0;
-for (var k = startLeft; k < stopRight; ++k) {
-if (leftArr[m] <= rightArr[n]) {
-arr[k] = leftArr[m];
-m++;
-}
-else {
-arr[k] = rightArr[n];
-n++;
-}
-}
-print("left array - ", leftArr);
-print("right array - ", rightArr);
-}
+
 var nums = [6,10,1,9,4,8,2,7,3,5];
 print(nums);
 print();
